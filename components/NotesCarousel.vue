@@ -86,4 +86,44 @@ function hideNote(index) {
   color: #831843;
   font-weight: 500;
 }
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .notes-carousel {
+    padding: 0 0.5rem;
+    gap: 0.8rem;
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .note-card {
+    width: 100%;
+    max-width: 250px;
+    padding: 0.8rem;
+    min-height: 80px;
+  }
+
+  .note-text {
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+}
+
+@media (max-width: 480px) {
+  .notes-carousel {
+    padding: 0 0.3rem;
+    gap: 0.6rem;
+  }
+
+  .note-card {
+    max-width: 220px;
+    padding: 0.6rem;
+    min-height: 70px;
+  }
+
+  .note-text {
+    font-size: 0.85rem;
+    line-height: 1.2;
+  }
+}
 </style>

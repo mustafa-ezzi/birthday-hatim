@@ -271,7 +271,7 @@ const trivia = [
   }
   ,
   {
-    question: "What's your favorite memory of us together?",
+    question: 'Whats your favorite memory of us together?',
     options: ['This has to be answered personally  '],
     answer: 'This has to be answered personally'
   }
@@ -470,6 +470,8 @@ onMounted(() => {
   border-radius: 20px;
   box-shadow: 0 0 30px rgba(236, 72, 153, 0.3);
   backdrop-filter: blur(10px);
+  width: 95%;
+  box-sizing: border-box;
 }
 
 /* Typography */
@@ -535,6 +537,7 @@ p {
   align-items: center;
   padding: 2rem 1rem;
   animation: fadeIn 1s ease;
+  text-align: center;
 }
 
 @keyframes fadeIn {
@@ -556,6 +559,8 @@ p {
   white-space: nowrap;
   margin: 1rem auto;
   animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+  max-width: 90%;
+  text-align: center;
 }
 
 @keyframes typing {
@@ -582,11 +587,11 @@ p {
 
 /* Polaroid */
 .polaroid-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.2rem;
   padding: 1rem;
+  justify-items: center;
 }
 
 .polaroid {
@@ -1027,7 +1032,395 @@ input.wish-input {
     transform: scale(1.05);
   }
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 15px;
+    width: 95%;
+  }
+
+  /* First Section - Intro Mobile */
+  .section {
+    min-height: auto;
+    padding: 1.5rem 0.5rem;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  h1 .name {
+    display: block;
+    margin-top: 0.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 1rem 0;
+  }
+
+  .typewriter {
+    font-size: 1.1rem;
+    max-width: 95%;
+    white-space: normal;
+    overflow: visible;
+    border-right: none;
+    animation: none;
+    text-align: center;
+  }
+
+  /* Notes Carousel Mobile */
+  .notes-carousel {
+    padding: 0 0.5rem;
+    gap: 0.8rem;
+    margin: 2rem auto 1.5rem;
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .note-card {
+    width: 100%;
+    max-width: 250px;
+    padding: 0.8rem;
+    min-height: 80px;
+    font-size: 0.9rem;
+  }
+
+  .note-text {
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+
+  /* Buttons Mobile */
+  .animated-btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    margin: 0.5rem;
+    width: auto;
+    max-width: 250px;
+  }
+
+  h1, h2 {
+    font-size: 2rem;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .section {
+    min-height: auto;
+    padding: 1.5rem 0.5rem;
+  }
+
+  /* Polaroid Gallery Mobile */
+  .polaroid-gallery {
+    gap: 0.8rem;
+    padding: 0.5rem;
+  }
+
+  .polaroid {
+    width: 140px;
+    padding: 6px;
+  }
+
+  .polaroid p {
+    font-size: 0.8rem;
+    line-height: 1.2;
+  }
+
+  /* AI Generator Mobile */
+  .ai-generator {
+    padding: 1rem;
+    margin: 0 0.5rem;
+  }
+
+  .ai-input {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+
+  .poem-text {
+    font-size: 1.1rem;
+    padding: 0.8rem;
+  }
+
+  /* Video Memory Mobile */
+  .video-memory {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+
+  .cute-video {
+    max-width: 100%;
+  }
+
+  .video-caption {
+    font-size: 1rem;
+  }
+
+  /* Notes Carousel Mobile */
+  .notes-carousel {
+    padding: 0 0.5rem;
+    gap: 0.8rem;
+  }
+
+  .note-card {
+    width: 100%;
+    max-width: 280px;
+    padding: 1rem;
+    min-height: 100px;
+  }
+
+  .note-text {
+    font-size: 1rem;
+  }
+
+  /* Trivia Mobile */
+  .options button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
+  }
+
+  /* Balloon Game Mobile */
+  .balloon-game {
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+
+  .balloon-pop {
+    font-size: 2rem;
+  }
+
+  /* Wish Input Mobile */
+  .wish-input {
+    width: 90%;
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+
+  /* Final Scene Mobile */
+  .final-message {
+    font-size: 1.4rem;
+    padding: 0.8rem;
+  }
+
+  /* Music Control Mobile */
+  .music-control {
+    top: 15px;
+    right: 15px;
+  }
+
+  .music-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+
+  /* Buttons Mobile */
+  .animated-btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    margin: 0.5rem;
+  }
+
+  .glow-btn {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.8rem;
+    margin: 0.3rem;
+    width: 97%;
+  }
+
+  /* Extra small screens - First Section */
+  h1 {
+    font-size: 1.8rem;
+    line-height: 1.1;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .typewriter {
+    font-size: 1rem;
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+
+  .note-card {
+    width: 100%;
+    padding: 0.8rem;
+    max-width: 260px;
+  }
+
+  .note-text {
+    font-size: 0.9rem;
+  }
+
+  .animated-btn {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    margin: 0.3rem;
+  }
+
+  /* Music Control Extra Small */
+  .music-control {
+    top: 10px;
+    right: 10px;
+  }
+
+  .music-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .typewriter {
+    font-size: 1.1rem;
+  }
+
+  /* Extra small screens */
+  .polaroid {
+    width: 120px;
+  }
+
+  .polaroid p {
+    font-size: 0.7rem;
+  }
+
+  .note-card {
+    width: 100%;
+    padding: 0.8rem;
+  }
+
+  .ai-generator {
+    padding: 0.8rem;
+  }
+
+  .poem-text {
+    font-size: 1rem;
+  }
+
+  .final-message {
+    font-size: 1.2rem;
+  }
+
+  .balloon-pop {
+    font-size: 1.8rem;
+  }
+
+  /* Extra small screens - Notes Carousel */
+  .notes-carousel {
+    padding: 0 0.3rem;
+    gap: 0.6rem;
+    margin: 1.5rem auto 1rem;
+  }
+
+  .note-card {
+    width: 100%;
+    max-width: 220px;
+    padding: 0.6rem;
+    min-height: 70px;
+  }
+
+  .note-text {
+    font-size: 0.85rem;
+    line-height: 1.2;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    max-width: 750px;
+    padding: 2rem 1.5rem;
+  }
+
+  .polaroid-gallery {
+    gap: 1rem;
+  }
+
+  .polaroid {
+    width: 160px;
+  }
+
+  .notes-carousel {
+    gap: 1rem;
+  }
+
+  .note-card {
+    width: 250px;
+  }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .section {
+    min-height: auto;
+    padding: 1rem;
+  }
+
+  .video-memory {
+    margin: 1rem 0;
+  }
+
+  .cute-video {
+    max-width: 300px;
+  }
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+  .note-card:active {
+    transform: scale(1.05) rotateY(5deg);
+    opacity: 1;
+    box-shadow: 0 8px 25px rgba(168, 85, 247, 0.3);
+    background: linear-gradient(145deg, #ffffff, #fce7f3);
+    border-color: #ec4899;
+  }
+
+  .polaroid:active {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 8px 25px rgba(168, 85, 247, 0.3);
+  }
+
+  .animated-btn:active {
+    transform: scale(0.98);
+  }
+}
 </style>
+
 
 
 
