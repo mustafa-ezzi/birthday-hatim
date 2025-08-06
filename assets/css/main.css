@@ -1,0 +1,292 @@
+:root {
+  --pink-light: #fce7f3;
+  --pink-mid: #f472b6;
+  --pink: #ec4899;
+  --pink-dark: #be185d;
+  --pink-darker: #831843;
+  --purple: #a855f7;
+  --purple-dark: #7c3aed;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, var(--pink-light), #fdf2f8, #f0f9ff);
+  color: var(--pink-darker);
+  overflow-x: hidden;
+  text-align: center;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('https://cdn.jsdelivr.net/gh/JulianLaval/canvas-particle-network/images/starfield.png');
+  opacity: 0.03;
+  z-index: -2;
+  animation: backgroundFloat 20s linear infinite;
+  filter: hue-rotate(300deg);
+}
+
+/* Animation */
+@keyframes backgroundFloat {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1.2s ease-in both;
+  margin-bottom: 2rem;
+}
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease-in-out forwards;
+}
+
+/* Container */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(252, 231, 243, 0.9));
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(236, 72, 153, 0.2);
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+/* Headings */
+h1, h2 {
+  font-family: 'Caveat', cursive;
+  font-size: 2.8rem;
+  background: linear-gradient(135deg, var(--pink-darker), var(--purple-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+h2 {
+  font-size: 2.2rem;
+  color: var(--pink);
+}
+
+p {
+  font-size: 1.15rem;
+  color: #334155;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* Buttons */
+.animated-btn, button {
+  background: linear-gradient(135deg, var(--pink-mid), var(--purple));
+  color: white;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 40px;
+  font-size: 1.1rem;
+  box-shadow: 0 6px 20px rgba(236, 72, 153, 0.4);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.animated-btn:hover, button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(168, 85, 247, 0.5);
+}
+.animated-btn::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.25);
+  transform: skewX(-20deg);
+  transition: 0.5s;
+}
+.animated-btn:hover::after {
+  left: 130%;
+}
+
+/* Typewriter */
+.typewriter {
+  overflow: hidden;
+  border-right: .15em solid var(--pink);
+  white-space: nowrap;
+  animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  max-width: 90%;
+  margin: 1rem auto;
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--pink) }
+}
+
+/* Section Card */
+section {
+  border: 2px dashed var(--pink);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(252, 231, 243, 0.3), rgba(253, 242, 248, 0.5));
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+section:hover {
+  transform: scale(1.01);
+  box-shadow: 0 0 15px rgba(236, 72, 153, 0.2);
+}
+
+
+
+/* Star background */
+.floating-stars .star {
+  color: var(--pink);
+  font-size: 1.2rem;
+  opacity: 0.3;
+  filter: drop-shadow(0 0 6px rgba(236, 72, 153, 0.4));
+  animation: floatStar 10s linear infinite;
+}
+@keyframes floatStar {
+  0% { transform: translateY(0); opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+
+
+/* Sparkles */
+.heart, .sparkle {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+}
+.heart {
+  font-size: 1.5rem;
+  animation: floatUp 1s ease forwards;
+}
+.sparkle {
+  animation: sparkleFade 1s ease-out;
+}
+@keyframes floatUp {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-80px) scale(1.5); }
+}
+@keyframes sparkleFade {
+  0% { opacity: 1; transform: scale(1) rotate(0deg); }
+  100% { opacity: 0; transform: scale(2) rotate(180deg); }
+}
+
+/* Final Message */
+.final-message {
+  font-family: 'Caveat', cursive;
+  font-size: 1.8rem;
+  padding: 1rem;
+  line-height: 1.8;
+  transition: opacity 1s ease, color 1s ease;
+}
+
+/* FINAL SCENE: THEATRICAL REVEAL */
+.final-scene {
+  background-color: #0f172a;
+  color: #475569;
+  transition: background-color 1s ease, color 1s ease;
+}
+
+.final-scene .final-title {
+  font-family: 'Caveat', cursive;
+  font-size: 2.8rem;
+  opacity: 0.2;
+  transition: opacity 1.2s ease, color 1.2s ease;
+}
+
+.final-scene .final-message {
+  font-size: 1.8rem;
+  font-family: 'Caveat', cursive;
+  color: #475569;
+  opacity: 0.2;
+  padding: 1rem;
+  line-height: 1.8;
+  transition: opacity 1s ease, color 1s ease;
+}
+
+.final-scene .glow-btn {
+  background: #3b82f6;
+  color: white;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.7);
+  animation: pulseGlow 1.5s infinite ease-in-out;
+  margin-top: 2rem;
+  transition: 0.3s ease;
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 15px rgba(59,130,246,0.4); }
+  50% { box-shadow: 0 0 30px rgba(59,130,246,0.9); }
+  100% { box-shadow: 0 0 15px rgba(59,130,246,0.4); }
+}
+
+/* 🔥 LIGHTS ON FIX (not scoped so it works properly) */
+.final-scene.lit {
+  background: linear-gradient(135deg, var(--pink-light), #fdf2f8) !important;
+  color: var(--pink-darker) !important;
+}
+.final-scene.lit .final-title,
+.final-scene.lit .final-message {
+  opacity: 1;
+  color: var(--pink-darker) !important;
+}
+.final-scene.lit .glow-btn {
+  display: none;
+}
+
+/* Floating Stars */
+.floating-stars {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+.star {
+  position: absolute;
+  font-size: 1.2rem;
+  animation: floatStar 10s linear infinite;
+  color: var(--pink);
+  opacity: 0.4;
+  filter: drop-shadow(0 0 6px rgba(236, 72, 153, 0.4));
+}
+.star:nth-child(odd) { animation-duration: 8s; }
+.star:nth-child(even) { animation-duration: 12s; }
+@keyframes floatStar {
+  0% { transform: translateY(0); opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
