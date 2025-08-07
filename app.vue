@@ -67,9 +67,35 @@
 
       <button class="animated-btn" @click="next" v-if="generatedPoem">Continue Journey 🚀</button>
     </section>
+    <!-- SECTION 3.5: Birthday Cake Video -->
+    <section class="section cake-section" v-if="section === 4">
+      <h2>🎂 A Special Moment</h2>
+      
+      <div class="cake-video-container">
+        <div class="video-frame">
+          <video controls autoplay muted loop class="cake-video">
+            <source src="/public/birthday-cake.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        
+        <div class="love-note-card">
+          <div class="note-header">💌 A Love Note</div>
+          <p class="love-note-text">
+            Every moment with you feels like a celebration,<br/>
+            but today is extra special because it's all about you.<br/>
+            You deserve all the sweetness in the world,<br/>
+            just like this beautiful cake! 🎂💕
+          </p>
+          <div class="note-signature">— With all my love 💙</div>
+        </div>
+      </div>
+      
+      <button class="animated-btn" @click="next">Continue the Magic ✨</button>
+    </section>
 
     <!-- SECTION 3: Trivia Game -->
-    <section class="section fade-in" v-if="section === 4">
+    <section class="section fade-in" v-if="section === 5">
       <h2>🧠 Trivia Time!</h2>
       <div class="quiz">
         <p>{{ trivia[currentTrivia].question }}</p>
@@ -82,8 +108,10 @@
       </div>
     </section>
 
+
+
     <!-- SECTION 4: Balloon Pop -->
-    <section class="section fade-in" v-if="section === 5">
+    <section class="section fade-in" v-if="section === 6">
       <h2>🎈 Pop the Balloons!</h2>
       <div class="balloon-game">
         <div v-for="b in poppedBalloons" :key="b.id" class="balloon-pop" :class="{ popped: b.popped }"
@@ -97,7 +125,7 @@
     </section>
 
     <!-- SECTION 5: Wish Maker -->
-    <section class="section fade-in" v-if="section === 6">
+    <section class="section fade-in" v-if="section === 7">
       <h2>🌠 Make a Wish</h2>
       
       <!-- Cute Video Section -->
@@ -119,7 +147,7 @@
     </section>
 
     <!-- SECTION 6: Final Surprise -->
-    <section class="section final-scene" :class="{ lit: lightsOn }" v-if="section === 7">
+    <section class="section final-scene" :class="{ lit: lightsOn }" v-if="section === 8">
       <h2 class="final-title">💌 A Love Note...</h2>
 
       <div class="final-content">
@@ -229,8 +257,8 @@ const images = [
   '/img5.jpg', '/img6.jpg', '/img7.jpg', '/img8.jpg', '/img9.jpg'
 ]
 const imageCaptions = [
-  'That one blessed night❤😘#Engagement🫶🏻', 'My favorite love language?𝐘𝐎𝐔❤😘', 'That 12AM Surprise By You🥰😘#BirthdayMemory', 'Dressed to impress… each other 😘💫',
-  'Matching Vibes > Matching Outfits ✨👫', 'Our First Eid Together🤟🏻😍', 'Cutest reflection in the mirror? Us.♾ 😍🪞', 'They looked for the moon, but found us instead. 😉🌚🤭', 'Shared, dreamed, and built a bond that only grows.🫶🏻💋#6MonthsAnniversarykiyaad♥',
+  'That one magical night that made our bond even deeper.❤️🌙 #UnforgettableMoments', 'My favorite love language?𝐘𝐎𝐔❤😘', 'That 12AM Surprise By You🥰😘#BirthdayMemory', 'Dressed to impress… each other 😘💫',
+  'Matching Vibes > Matching Outfits ✨👫', 'No reason needed, your presence makes every day feel like a little celebration.✨❤️', 'Cutest reflection in the mirror? Us.♾ 😍🪞', 'They looked for the moon, but found us instead. 😉🌚🤭', 'We keep writing our story—slowly, sweetly, one beautiful moment at a time.❤',
   'From the memories of your Coconut Birthday😍'
 ]
 
@@ -1419,7 +1447,196 @@ input.wish-input {
     transform: scale(0.98);
   }
 }
+
+/* Responsive styles for cake section */
+@media (max-width: 768px) {
+  .cake-section h2 {
+    font-size: 2rem;
+  }
+
+  .cake-video-container {
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .video-frame {
+    padding: 6px;
+  }
+
+  .cake-video {
+    max-width: 100%;
+  }
+
+  .love-note-card {
+    padding: 1.5rem;
+    margin: 0 0.5rem;
+  }
+.cake-section {
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+  color: #e2e8f0;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.cake-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 182, 193, 0.1), transparent 50%),
+              radial-gradient(circle at 70% 80%, rgba(255, 218, 185, 0.1), transparent 50%);
+  pointer-events: none;
+}
+
+.cake-section h2 {
+  color: #ffd6cc;
+  text-shadow: 2px 2px 8px rgba(255, 182, 193, 0.5);
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+}
+
+.cake-video-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.video-frame {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+              0 0 30px rgba(255, 182, 193, 0.2);
+  border: 3px solid rgba(255, 218, 185, 0.3);
+  background: linear-gradient(45deg, rgba(255, 182, 193, 0.1), rgba(255, 218, 185, 0.1));
+  padding: 8px;
+}
+
+.cake-video {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 15px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.cake-video:hover {
+  transform: scale(1.02);
+}
+
+.love-note-card {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 248, 245, 0.9));
+  border: 2px solid rgba(255, 182, 193, 0.4);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2),
+              inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  position: relative;
+  max-width: 500px;
+  text-align: center;
+}
+
+.love-note-card::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: linear-gradient(45deg, #ffb6c1, #ffdab9, #ffb6c1);
+  border-radius: 22px;
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.note-header {
+  font-family: 'Caveat', cursive;
+  font-size: 1.8rem;
+  color: #be185d;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 3px rgba(190, 24, 93, 0.2);
+}
+
+.love-note-text {
+  font-family: 'Caveat', cursive;
+  font-size: 1.4rem;
+  color: #831843;
+  line-height: 1.6;
+  margin: 1rem 0;
+  text-shadow: 1px 1px 2px rgba(131, 24, 67, 0.1);
+}
+
+.note-signature {
+  font-family: 'Caveat', cursive;
+  font-size: 1.2rem;
+  color: #be185d;
+  font-style: italic;
+  margin-top: 1.5rem;
+  text-align: right;
+}
+
+.cake-section .animated-btn {
+  background: linear-gradient(135deg, #ffb6c1, #ffdab9);
+  color: #831843;
+  border: 2px solid rgba(255, 182, 193, 0.5);
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 25px rgba(255, 182, 193, 0.4);
+  margin-top: 2rem;
+}
+
+.cake-section .animated-btn:hover {
+  background: linear-gradient(135deg, #ffdab9, #ffb6c1);
+  box-shadow: 0 12px 30px rgba(255, 218, 185, 0.6);
+  transform: scale(1.05) translateY(-2px);
+}
+  .note-header {
+    font-size: 1.5rem;
+  }
+
+  .love-note-text {
+    font-size: 1.2rem;
+  }
+
+  .note-signature {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cake-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .love-note-card {
+    padding: 1rem;
+  }
+
+  .note-header {
+    font-size: 1.3rem;
+  }
+
+  .love-note-text {
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  .note-signature {
+    font-size: 1rem;
+  }
+}
 </style>
+
+
 
 
 
